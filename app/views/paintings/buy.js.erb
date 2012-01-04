@@ -1,5 +1,6 @@
-<% if current_user.credits > (@painting.credits+(@painting.credits*0.05)) %>
+<% if @bought_flag == 1 %>
   $("#show_credits").html("<%= @painting.credits %>");
+  alert("Thank you for purchasing.\n \n Painting Cost :  <%= @painting.credits %> credits \n Service cost(5%) :  <%=(@painting.credits*0.05)%> credits\nCredits Remaining: <%= current_user.credits%> credits")
   window.location.replace("/paintings")
 <% else %>
   alert("Not Enough Credits. Click here to buy");

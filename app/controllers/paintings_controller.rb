@@ -44,13 +44,23 @@ class PaintingsController < ApplicationController
       @painting.save
       current_user.save
       seller.save
+      @bought_flag=1;
     end
   end
-  def tag_collector
-    @tags = Painting.tag_counts_on(:tags).limit(20)
+  def tag
+    binding.pry
   end
-  def tags
-    
+  def search
+    @search = Painting.search do
+      fulltext params[:search]
+    end
+    @paintings = @search.results
+    binding.pry
+    render "index"   
   end
   
+  private
+    def tag_collector
+      @tags = Painting.tag_counts_on(:tags).limit(20)
+    end
 end

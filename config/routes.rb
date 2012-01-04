@@ -8,6 +8,7 @@ IstockpaintingV10::Application.routes.draw do
   devise_for :users
   
   resources :paintings do
+    get "search"
     member do
       get "buy"
       get "tag"

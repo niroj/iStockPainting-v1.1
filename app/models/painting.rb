@@ -5,5 +5,8 @@ class Painting < ActiveRecord::Base
   
   acts_as_taggable
     
+    searchable do
+        text :title, :inspiration
+    end    
   mount_uploader :image, ImageUploader
 end
