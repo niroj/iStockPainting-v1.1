@@ -1,14 +1,22 @@
 <div class = "one-third">
   <div class = "sidebar_container">
-    Search:
+    <h3>Search</h3>
     <input type="text" placeholder = "search.."/><br /><br />
-    <h2>Categories</h2>
+    </div>
+    <br />
+    <div class = "sidebar_container">
+    <h3>Categories</h3>
     <ul>
       <% @categories = Category.limit(5) %>
       <% @categories.each do |category| %>
         <li><%= link_to category.name, category_path(category.id)%></li>
       <% end %>
-
     </ul>
+  </div><br />
+  <div class = "sidebar_container">
+    <h3>Tags</h3>
+    <% tag_cloud(@tags, %w(css1 css2 css3 css4 css5 css6)) do |tag, css_class| %>
+      <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>&nbsp;
+    <% end %>
   </div>
 </div>

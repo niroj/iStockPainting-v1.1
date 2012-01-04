@@ -1,5 +1,6 @@
 class PaintingsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :tag_collector
   def index
     @categories = Category.all
     @paintings = Painting.where(:status => true)
@@ -44,6 +45,12 @@ class PaintingsController < ApplicationController
       current_user.save
       seller.save
     end
+  end
+  def tag_collector
+    @tags = Painting.tag_counts_on(:tags).limit(20)
+  end
+  def tags
+    
   end
   
 end
