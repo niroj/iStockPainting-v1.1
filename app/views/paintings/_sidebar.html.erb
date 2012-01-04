@@ -16,7 +16,7 @@
   <div class = "sidebar_container">
     <h3>Tags</h3>
     <% tag_cloud(@tags, %w(css1 css2 css3 css4 css5 css6)) do |tag, css_class| %>
-      <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>&nbsp;
+      <%= link_to tag.name, { :action => :tag, :id => tag.name, :controller => :paintings }, :class => css_class %>&nbsp;
     <% end %>
   </div>
 </div>
