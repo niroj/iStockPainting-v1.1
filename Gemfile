@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem "rmagick"
 gem 'acts-as-taggable-on', '~>2.2.0'
 gem 'sunspot_rails'
+gem 'ajaxful_rating', '>= 3.0.0.beta7'
 
 group :development do
     gem 'sunspot_solr'

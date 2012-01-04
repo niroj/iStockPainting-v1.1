@@ -13,9 +13,7 @@ class PaintingsController < ApplicationController
   def create
     @painting = current_user.paintings.new(params[:painting])
     @painting.category_id = params[:category][:id]
-    binding.pry
     @painting.tag_list = params[:painting][:tag_list]
-    binding.pry
     if @painting.save
       flash[:notice] = "Successfully uploaded painting."
       redirect_to @painting, :action => 'index'
@@ -50,17 +48,17 @@ class PaintingsController < ApplicationController
   def tag
     binding.pry
   end
-  def search
-    @search = Painting.search do
+  def searcher
+    @search_response = Painting.search do
       fulltext params[:search]
     end
-    @paintings = @search.results
-    binding.pry
-    render "index"   
+    @paintings = @search_response.results
+    render "index"
   end
-  
+
   private
     def tag_collector
       @tags = Painting.tag_counts_on(:tags).limit(20)
     end
 end
+

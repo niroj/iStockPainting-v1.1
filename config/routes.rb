@@ -6,15 +6,17 @@ IstockpaintingV10::Application.routes.draw do
   get "home/index"
 
   devise_for :users
-  
+
   resources :paintings do
-    get "search"
+  	collection do
+    	get "searcher"
+    end
     member do
       get "buy"
       get "tag"
     end
   end
-  
+
   resources :category
 
   # The priority is based upon order of creation:
@@ -74,3 +76,4 @@ IstockpaintingV10::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
