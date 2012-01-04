@@ -14,8 +14,10 @@ IstockpaintingV10::Application.routes.draw do
     member do
       get "buy"
       get "tag"
+      post "rate"
     end
   end
+
 
   resources :category
 

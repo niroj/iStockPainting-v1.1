@@ -56,6 +56,16 @@ class PaintingsController < ApplicationController
     render "index"
   end
 
+    def rate
+    @painting = Painting.find(params[:id])
+    @painting.rate(params[:stars], current_user, params[:dimension])
+    render :show, :id => nil do |page|
+      page.replace_html @painting.wrapper_dom_id(params), ratings_for(@painting, params.merge(:wrap => false))
+      page.visual_effect :highlight, @painting.wrapper_dom_id(params)
+    end
+  end
+
+
   private
     def tag_collector
       @tags = Painting.tag_counts_on(:tags).limit(20)

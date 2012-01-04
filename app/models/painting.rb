@@ -3,6 +3,8 @@ class Painting < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+  ajaxful_rateable :stars => 10, :dimensions => [:speed, :beauty, :price]
+
   acts_as_taggable
 
     searchable do
