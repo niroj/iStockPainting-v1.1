@@ -1,4 +1,4 @@
-<% if(current_user.credits > @painting.credits) %>
+<% if current_user.credits > (@painting.credits+(@painting.credits*0.05)) %>
   $("#show_credits").html("<%= @painting.credits %>");
   window.location.replace("/paintings")
 <% else %>

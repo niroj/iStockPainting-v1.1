@@ -12,6 +12,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'carrierwave'
 gem "rmagick"
+gem 'acts-as-taggable-on', '~>2.2.0'
 
 
 # Gems used only for assets and not required

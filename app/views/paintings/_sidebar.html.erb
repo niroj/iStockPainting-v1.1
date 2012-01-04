@@ -4,9 +4,11 @@
     <input type="text" placeholder = "search.."/><br /><br />
     <h2>Categories</h2>
     <ul>
-      <li><a href = "#">Eastern art</a></li>
-      <li><a href = "#">Thanka</a></li>
-      <li><a href = "#">Abstract art</a></li>
+      <% @categories = Category.limit(5) %>
+      <% @categories.each do |category| %>
+        <li><%= link_to category.name, category_path(category.id)%></li>
+      <% end %>
+
     </ul>
   </div>
 </div>

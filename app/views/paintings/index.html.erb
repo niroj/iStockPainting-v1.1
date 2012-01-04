@@ -1,13 +1,1 @@
-<div class="two-third">
-  <% @paintings.each do |painting| %>
-    <div class="painting_thumbs">
-      <%= link_to(painting_path(painting.id)) do%>
-      <%= image_tag painting.image_url(:thumb) if painting.image? %>
-      <span class="name"><%= painting.title %></span>
-      <span class = "thumb-price"><%= painting.credits %>&nbsp;credits</span>
-      <% end %>
-    </div>
-  <% end %>
-  <div class="clear"></div>
-</div>
-<%= render "sidebar" %>
+<%= render "index" %>

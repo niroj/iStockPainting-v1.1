@@ -8,7 +8,9 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function(){
-  $("#buy a").live("click",function(){
-    confirm("do you want really buy?");
-  });
+  // $("#buy a").live("click",function(){
+  //     if(confirm("do you want really buy?")){
+  //       
+  //     }
+  //   });
 });

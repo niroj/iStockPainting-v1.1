@@ -80,3 +80,12 @@
 	position:relative;
 	top:1px;
 }
+#policy_info{
+  margin:0 auto;
+  width:960px;
+  padding:5px;
+}
+.tags{
+  clear:both;
+  padding:10px;
+}

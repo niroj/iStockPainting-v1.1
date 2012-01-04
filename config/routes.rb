@@ -10,8 +10,11 @@ IstockpaintingV10::Application.routes.draw do
   resources :paintings do
     member do
       get "buy"
+      get "tag"
     end
   end
+  
+  resources :category
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -9,13 +9,21 @@
     <%= f.text_field :credits %>
   </p>
   <p>
+    <%= f.label :category %><br />
+    <%= select("category", "id", @categories.each.collect {|category| [ category.name, category.id ] }, {:include_blank => 'choose a category'}) %>
+  </p>
+  <p>
     <%= f.label :inspiration %><br />
     <%= f.text_area :inspiration %>
+  </p>
+  <p>
+    <%= f.label :tag_list %><br />
+    <%= f.text_field :tag_list %>
   </p>
   <p>
     <%= f.label :image %><br />
     <%= f.file_field :image %>
   </p>
-  <p><%= f.submit %></p>
+  <p><%= f.submit  %></p>
 <% end %>
 
