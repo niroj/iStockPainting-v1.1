@@ -1,7 +1,7 @@
 <div class = "one-third">
   <div class = "sidebar_container">
     <h3>Search</h3>
-    <%= form_tag searcher_paintings_path, :method => :get do %>
+    <%= form_tag search_paintings_path, :method => :get do %>
       <p>
         <%= text_field_tag :search, params[:search] %>
         <%= submit_tag "Search", :name => nil %>

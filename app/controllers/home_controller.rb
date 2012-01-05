@@ -2,8 +2,8 @@ class HomeController < ApplicationController
   before_filter :tag_collector
   def index
     if user_signed_in?
-      @featured_painting_id = select_featured_painting
-      redirect_to painting_path(:id => @featured_painting_id.id)
+      @painting = select_featured_painting
+      redirect_to painting_path(@painting)
     end
   end
   def tag_collector

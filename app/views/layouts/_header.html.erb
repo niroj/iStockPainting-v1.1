@@ -26,10 +26,9 @@
                 <li><%= link_to "Home", root_path, :class => "selected" %></li>
                 <li><%= link_to "Browse Paintings", paintings_path %></li>
                 <li><%= link_to "Upload Painting", new_painting_path %></li>
+                <li><%= link_to "My Paintings", my_paintings_path %></li>
               <% else %>
               <li><%= link_to "Browse Paintings", paintings_path %></li>
-              <li><a href="portfolio.html">Take a Tour</a></li>
-              <li><a href="services.html">Who we are?</a></li>
               <% end %>
               <li><%=link_to "Contact Us", new_contact_path %></li>
             </ul>

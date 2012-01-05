@@ -1,16 +1,13 @@
 IstockpaintingV10::Application.routes.draw do
-  # get "paintings/new"
-  #
-  # get "paintings/views"
-  #
-  # get "home/index"
 
   devise_for :users
 
   resources :paintings do
-  	collection do
-    	get "searcher"
+    collection do
+      get "search"
+      get "my"
     end
+    
     member do
       get "buy"
       get "tag"
