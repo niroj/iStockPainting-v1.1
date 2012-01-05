@@ -1,7 +1,11 @@
 <div class = "one-third">
   <div class = "sidebar_container">
     <h3>Search</h3>
-    <input type="text" placeholder = "search.."/><br /><br />
+    <%= form_tag searcher_paintings_path, :method => :get do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+    <% end %>
     </div>
     <br />
     <div class = "sidebar_container">
@@ -20,3 +24,4 @@
     <% end %>
   </div>
 </div>
+

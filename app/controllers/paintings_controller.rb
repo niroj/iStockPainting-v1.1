@@ -13,9 +13,7 @@ class PaintingsController < ApplicationController
   def create
     @painting = current_user.paintings.new(params[:painting])
     @painting.category_id = params[:category][:id]
-    binding.pry
     @painting.tag_list = params[:painting][:tag_list]
-    binding.pry
     if @painting.save
       flash[:notice] = "Successfully uploaded painting."
       redirect_to @painting, :action => 'index'
@@ -26,11 +24,7 @@ class PaintingsController < ApplicationController
 
   def show
     @categories = Category.all
-    if params[:id].nil?
-      @painting = Painting.where(:id => 8).last
-    else
-      @painting = Painting.find(params[:id])
-    end
+    @painting = Painting.find(params[:id])
   end
 
   def buy
@@ -44,13 +38,36 @@ class PaintingsController < ApplicationController
       @painting.save
       current_user.save
       seller.save
+      @bought_flag=1;
     end
   end
-  def tag_collector
-    @tags = Painting.tag_counts_on(:tags).limit(20)
+  def tag
+    binding.pry
   end
-  def tags
-
+  def searcher
+    @search_response = Painting.search do
+      fulltext params[:search]
+    end
+    @paintings = @search_response.results
+    render "index"
   end
 
+  def rate
+    @painting = Painting.find(params[:id])
+    @painting.rate(params[:stars], current_user, params[:dimension])
+    # render :show do |page|
+    #   page.replace_html @painting.wrapper_dom_id(params), ratings_for(@painting, params.merge(:wrap => false))
+    #   page.visual_effect :highlight, @painting.wrapper_dom_id(params)
+    # end
+    respond_to do |format|
+        format.js { render :partial => "rating" }
+    end
+  end
+
+
+  private
+    def tag_collector
+      @tags = Painting.tag_counts_on(:tags).limit(20)
+    end
 end
+

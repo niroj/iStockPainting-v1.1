@@ -13,8 +13,15 @@ gem 'devise'
 gem 'carrierwave'
 gem "rmagick"
 gem 'acts-as-taggable-on', '~>2.2.0'
+
 gem 'contact_us', '~> 0.1.4'
 gem 'formtastic'
+gem 'sunspot_rails'
+gem 'ajaxful_rating', '>= 3.0.0.beta7'
+
+group :development do
+    gem 'sunspot_solr'
+  end
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -8,9 +8,13 @@ IstockpaintingV10::Application.routes.draw do
   devise_for :users
 
   resources :paintings do
+  	collection do
+    	get "searcher"
+    end
     member do
       get "buy"
       get "tag"
+      post "rate"
     end
   end
 
@@ -73,3 +77,4 @@ IstockpaintingV10::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+

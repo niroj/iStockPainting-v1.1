@@ -370,7 +370,7 @@ em {
 	overflow: hidden;
 }
 
-#wrapper ul li {
+.one-third ul li {
 	line-height: 20px;
 	list-style: none;
 	display: block;
