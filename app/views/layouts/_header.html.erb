@@ -4,17 +4,17 @@
       <div id="header">
         <div id="logo"><a href="index.html"><img src="/images/logo.png" alt="Delphic" /></a></div>
         <!-- Logo -->
-					<div id = "user_field" >
-						<%if user_signed_in? %>
-							<p>
-								Welcome <%= current_user.email %>&nbsp;!&nbsp; <%= link_to "Log out", destroy_user_session_path, :method => 'delete' %><br /><br />
-								<span>Available Credits : <b id = "show_credits"><%= current_user.credits %></b> &nbsp;|&nbsp;<a href="#">Buy credits</a></span>
-						</p>
-						<% else %>
-							<%= render "devise/sessions/new" %><br />
-							<span><%= link_to "Not a Member? Sign Up for Free.", new_user_registration_path %></span>
-						<% end %>
-					</div>
+                    <div id = "user_field" >
+                        <%if user_signed_in? %>
+                            <p>
+                                Welcome <%= current_user.email %>&nbsp;!&nbsp; <%= link_to "Log out", destroy_user_session_path, :method => 'delete' %><br /><br />
+                                <span>Available Credits : <b id = "show_credits"><%= current_user.credits %></b> &nbsp;|&nbsp;<a href="#">Buy credits</a></span>
+                        </p>
+                        <% else %>
+                            <%= render "devise/sessions/new" %><br />
+                            <span><%= link_to "Not a Member? Sign Up for Free.", new_user_registration_path %></span>
+                        <% end %>
+                    </div>
       </div>
       <!-- End Header -->
     </div>
@@ -31,9 +31,13 @@
               <li><a href="portfolio.html">Take a Tour</a></li>
               <li><a href="services.html">Who we are?</a></li>
               <% end %>
-              <li><a href="contact.html">Contact Us</a></li>             
+              <li><%=link_to "Contact Us", new_contact_path %></li>
             </ul>
           </div>
         </div>
         <!-- End Menu -->
+        <!-- notice if Contact added successfully -->
+        <!-- <p class="notice"><%= notice %></p>
+        <p class="alert" ><%= alert %></p> -->
+
   </div>

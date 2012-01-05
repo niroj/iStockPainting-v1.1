@@ -50,7 +50,7 @@ class PaintingsController < ApplicationController
     @tags = Painting.tag_counts_on(:tags).limit(20)
   end
   def tags
-    
+
   end
-  
+
 end

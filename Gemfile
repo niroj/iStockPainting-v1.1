@@ -13,7 +13,8 @@ gem 'devise'
 gem 'carrierwave'
 gem "rmagick"
 gem 'acts-as-taggable-on', '~>2.2.0'
-
+gem 'contact_us', '~> 0.1.4'
+gem 'formtastic'
 
 # Gems used only for assets and not required
 # in production environments by default.

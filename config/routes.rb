@@ -1,19 +1,19 @@
 IstockpaintingV10::Application.routes.draw do
-  get "paintings/new"
-
-  get "paintings/views"
-
-  get "home/index"
+  # get "paintings/new"
+  #
+  # get "paintings/views"
+  #
+  # get "home/index"
 
   devise_for :users
-  
+
   resources :paintings do
     member do
       get "buy"
       get "tag"
     end
   end
-  
+
   resources :category
 
   # The priority is based upon order of creation:
