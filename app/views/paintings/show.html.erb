@@ -2,15 +2,24 @@
   <div class="painting">
     <h2><%= @painting.title %></h2>
     <%= image_tag @painting.image_url(:scaled_image) if @painting.image? %><br />
-    <span class="price" ><b>Price:</b> <%= @painting.credits%> credits</span>
-    <div><%= ratings_for @painting %></div>
+
+    <div class ="rating_block"><h4><b>Rating:</b></h4><span id = "painting_rating"><%= ratings_for @painting, :dimension => :beauty %><%= @p %></span></div>
+
+      <div class = "action_block">
       <% if user_signed_in? %>
         <% if current_user.id == @painting.user_id %>
           <span class="action_painting"><%= link_to "Update Painting Info", edit_painting_path%></span>
-        <%else%>
-          <span class="action_painting" id = "buy"><%= link_to "Buy this Painting*", buy_painting_path, :remote => "true"%></span>
+        <%elsif @painting.status == true%>
+          <span class="price" ><b>Price:</b> <%= @painting.credits%> credits</span>
+          <span class="action_painting" id = "buy"><%= link_to "Buy this Painting", buy_painting_path, :remote => "true"%><br />
+            <span id ="policy_info"> * 5% extra will be charged</span>
+          </span>
+        <% else %>
+          <span class="action_painting"><a href = "#">Already Sold</a></span>
         <%end%>
       <% end %>
+      </div>
+      <br /><br />
       <div class = "tags">
         <h4><b>Tags :</b></h4>
         <% @painting.tags.each do |tag| %>

@@ -24,13 +24,9 @@ class PaintingsController < ApplicationController
 
   def show
     @categories = Category.all
-    if params[:id].nil?
-      @painting = Painting.where(:id => 8).last
-    else
-      @painting = Painting.find(params[:id])
-    end
+    @painting = Painting.find(params[:id])
   end
-
+  
   def buy
     @painting = Painting.find(params[:id])
     app_earning = @painting.credits*0.05
@@ -59,9 +55,12 @@ class PaintingsController < ApplicationController
     def rate
     @painting = Painting.find(params[:id])
     @painting.rate(params[:stars], current_user, params[:dimension])
-    render :show, :id => nil do |page|
-      page.replace_html @painting.wrapper_dom_id(params), ratings_for(@painting, params.merge(:wrap => false))
-      page.visual_effect :highlight, @painting.wrapper_dom_id(params)
+    # render :show do |page|
+    #   page.replace_html @painting.wrapper_dom_id(params), ratings_for(@painting, params.merge(:wrap => false))
+    #   page.visual_effect :highlight, @painting.wrapper_dom_id(params)
+    # end
+    respond_to do |format|
+        format.js { render :partial => "rating" }
     end
   end
 

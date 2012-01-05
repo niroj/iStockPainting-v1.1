@@ -17,8 +17,7 @@ IstockpaintingV10::Application.routes.draw do
       post "rate"
     end
   end
-
-
+  
   resources :category
 
   # The priority is based upon order of creation:

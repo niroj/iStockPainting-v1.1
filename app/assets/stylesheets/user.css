@@ -27,6 +27,7 @@
 .painting img{
   height:450px;
   width:630px;
+  padding-bottom:20px;
 }
 .price, .inspiration{
   padding:10px;
@@ -83,11 +84,12 @@
 #policy_info{
   margin:0 auto;
   width:960px;
-  padding:5px;
+  padding:15px;
+  font-size:smaller;
 }
 .tags{
   clear:both;
-  padding:10px;
+  padding:20px 10px 10px 0px;
 }
 .css1 { font-size: 0.8em; }
 .css2 { font-size: 0.9em; }
@@ -95,3 +97,12 @@
 .css4 { font-size: 1.1em; }
 .css5 { font-size: 1.2em; }
 .css6 { font-size: 1.3em; }
+
+.rating_block{
+  width:200px;
+  float:left;
+}
+.action_block{
+  width:440px;
+  float:right;
+}
