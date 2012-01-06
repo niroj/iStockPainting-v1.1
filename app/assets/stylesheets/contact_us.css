@@ -125,3 +125,8 @@ form.formtastic {
 .content {
   width: 960px;
   margin: 0px auto; }
+
+abbr {
+    color: red;
+    margin-left: 2px;
+}

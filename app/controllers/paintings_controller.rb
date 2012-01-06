@@ -1,12 +1,12 @@
 class PaintingsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :tag_collector
-  
+
   def index
     @categories = Category.all
     @paintings = Painting.where(:status => true)
   end
-  
+
   def new
     @categories = Category.all
     @painting = current_user.paintings.new
@@ -15,8 +15,8 @@ class PaintingsController < ApplicationController
   def my
     @paintings = current_user.paintings
     render "index"
-  end 
-  
+  end
+
   def create
     @painting = current_user.paintings.new(params[:painting])
     @painting.category_id = params[:category][:id]
@@ -25,7 +25,10 @@ class PaintingsController < ApplicationController
       flash[:notice] = "Successfully uploaded painting."
       redirect_to @painting, :action => 'index'
     else
-      render :action => 'index'
+      respond_to do |format|
+        flash[:error] = "Please Fill the required Fields First."
+        format.html { redirect_to new_painting_path }
+      end
     end
   end
 
@@ -48,11 +51,11 @@ class PaintingsController < ApplicationController
       @bought_flag=1;
     end
   end
-  
+
   def tag
     binding.pry
   end
-  
+
   def search
     @search_response = Painting.search do
       fulltext params[:search]
@@ -68,7 +71,7 @@ class PaintingsController < ApplicationController
         format.js { render :partial => "rating" }
     end
   end
-  
+
   private
     def tag_collector
       @tags = Painting.tag_counts_on(:tags).limit(20)

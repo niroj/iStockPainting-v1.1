@@ -1,19 +1,19 @@
 <%= form_for @painting, :html => {:multipart => true} do |f| %>
   <%= f.hidden_field :user_id %>
   <p>
-    <%= f.label :title %><br />
+    <%= f.label :title %><abbr title="required">*</abbr><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :credits %><br />
+    <%= f.label :credits %><abbr title="required">*</abbr><br />
     <%= f.text_field :credits %>
   </p>
   <p>
-    <%= f.label :category %><br />
+    <%= f.label :category %><abbr title="required">*</abbr><br />
     <%= select("category", "id", @categories.each.collect {|category| [ category.name, category.id ] }, {:include_blank => 'choose a category'}) %>
   </p>
   <p>
-    <%= f.label :inspiration %><br />
+    <%= f.label :inspiration %><abbr title="required">*</abbr><br />
     <%= f.text_area :inspiration %>
   </p>
   <p>
@@ -21,7 +21,7 @@
     <%= f.text_field :tag_list %>
   </p>
   <p>
-    <%= f.label :image %><br />
+    <%= f.label :image %><abbr title="required">*</abbr><br />
     <%= f.file_field :image %>
   </p>
   <p><%= f.submit  %></p>

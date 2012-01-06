@@ -12,7 +12,7 @@ class ContactUs::ContactsController < ApplicationController
   end
 
   def new
-    @contact = ContactUs::Contact.new 
+    @contact = ContactUs::Contact.new
   end
 
 end
