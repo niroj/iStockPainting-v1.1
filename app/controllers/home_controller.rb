@@ -2,6 +2,8 @@ class HomeController < ApplicationController
   before_filter :tag_collector
   def index
   @painting = select_featured_painting
+  @category = Category.all
+  
     if user_signed_in?
       redirect_to painting_path(@painting)
     end
