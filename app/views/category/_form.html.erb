@@ -1,0 +1,12 @@
+<%= form_for @category , :url => category_index_path(@category) do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :desctiption %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p><%= f.submit  %></p>
+<% end %>
+

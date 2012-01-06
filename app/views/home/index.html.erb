@@ -19,8 +19,12 @@
     <header><h3><%= link_to "Categories :", category_index_path %></h3></header>
     <% @categories.each do |category| %>
       <%= link_to(category_path(category.id)) do%>
-        <div class="one-fourth"> 
-          <%= image_tag category.paintings.first.image_url(:thumb) if category.paintings.first.image? %>
+        <div class="one-fourth">
+          <%if category.paintings.empty? %>
+            <img src = "/images/no-images.jpg" />
+          <%else%> 
+            <%= image_tag category.paintings.first.image_url(:thumb) if category.paintings.first.image? %>
+          <%end%>
           <h4><%= category.name%></h4>
           <p><%= category.description %></p>
         </div>
