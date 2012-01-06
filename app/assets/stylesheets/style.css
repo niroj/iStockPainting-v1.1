@@ -657,7 +657,7 @@ em {
 
 .one-half, .three-fourth, .one-fourth, .one-fifth, .two-fifth, .three-fifth, .four-fifth, .one-sixth, .five-sixth {
 	position:relative;
-	margin-right:4%;
+	margin-right:3%;
 	float:left;
 }
 .one-third{
@@ -700,6 +700,8 @@ em {
 	box-shadow: 0px 1px 2px #656565;
 	display: block;
 	margin-bottom: 20px;
+	width:211px;
+	height:120px;
 }
 
 #about .one-fourth p {

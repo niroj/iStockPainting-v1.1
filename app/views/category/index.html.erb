@@ -1,0 +1,16 @@
+<div class="two-third">
+  <% if @categories.empty? %>
+    <div id ="notice"><h4>Sorry! We couldnot find any painting in this category or search criteria. Please choose another category or change the search criteria.</h4></div>
+  <% else %>
+    <% @categories.each do |category| %>
+      <div class="painting_thumbs">
+        <%= link_to(category_path(category.id)) do%>
+          <%= image_tag category.paintings.first.image_url(:thumb) if category.paintings.first.image? %>
+            <span class="name"><%= category.name %></span>
+          <% end %>
+      </div>
+  <% end %>
+  <div class="clear"></div>
+  <%end%>
+</div>
+<%= render "paintings/sidebar" %>

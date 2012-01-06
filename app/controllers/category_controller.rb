@@ -1,5 +1,8 @@
 class CategoryController < ApplicationController
   before_filter :tag_collector
+  def index
+    @categories = Category.all
+  end
   def show
     @category = Category.where(:id => params[:id]).last
     if @category.id == 1
