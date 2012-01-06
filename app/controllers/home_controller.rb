@@ -1,9 +1,8 @@
 class HomeController < ApplicationController
   before_filter :tag_collector
   def index
-  @painting = select_featured_painting
-  @category = Category.all
-  
+    @painting = select_featured_painting
+    @categories = Category.find(:all, :order => "RANDOM()", :limit =>4)
     if user_signed_in?
       redirect_to painting_path(@painting)
     end

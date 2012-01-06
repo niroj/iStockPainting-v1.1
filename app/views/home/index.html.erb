@@ -1,39 +1,36 @@
 <!-- Begin Slider -->
-  <div id="piecemaker-container">
-    <div id="piecemaker">
-      <p><%= image_tag @painting.image_url if @painting.image? %><br /></p>
-    </div>
+<div id="piecemaker-container">
+  <div id="piecemaker">
+    <p><%= image_tag @painting.image_url if @painting.image? %><br /></p>
   </div>
-  <!-- End Slider -->
-  <!-- Begin Wrapper -->
-  <div id="wrapper">
+</div>
+<!-- End Slider -->
+<!-- Begin Wrapper -->
+<div id="wrapper">
 
-    <!-- Begin Intro -->
-    <div class="intro">
-      <h1>Select from a 50000 paintings to buy &nbsp;&nbsp;<b>&nbsp;OR&nbsp;</b>&nbsp;&nbsp; Show and sell to a pool of 30000 potential buyers </h1>
-    </div>
-    <!-- End Intro -->
-
-    <!-- Begin About -->
-    <div id="about">
-      <header><h3><a href="#">Categories :</a></h3></header>
-      <a href="#"><div class="one-fourth"> <img src="/images/art/tree_on_the_bank.jpg" alt="" width = 211px height = 120px />
-        <h4>Eastern Art</h4>
-        <p>Eastern Paintings includes a vast range of influences from various cultures and religions.</p>
-      </div></a>
-      <a href="#"><div class="one-fourth"> <img src="/images/art/union_creek.jpg" alt="" width = 211px height = 120px />
-        <h4>Abstract Art</h4>
-        <p>Abstract Paintings uses a visual language of form, color and line to create a composition which may exist with a degree of independence from visual references in the world.</p>
-      </div></a>
-      <a href="#"><div class="one-fourth"><img src="/images/art/tree_on_the_bank.jpg" alt="" width = 211px height = 120px />
-        <h4>The Thankas</h4>
-        <p>Thanka is a Tibetan silk painting with embroidery, usually depicting a Buddhist deity, famous scene, or mandala of some sort.</p>
-      </div></a>
-      <a href="#"><div class="one-fourth last"> <img src="/images/art/union_creek.jpg" alt="" width = 211px height = 120px />
-        <h4>Abstract Art</h4>
-        <p>Abstract Paintings uses a visual language of form, color and line to create a composition which may exist with a degree of independence from visual references in the world.</p>
-      </div></a>
-    </div>
-    <!-- End About -->
+  <!-- Begin Intro -->
+  <div class="intro">
+    <h1>Select from a 50000 paintings to buy &nbsp;&nbsp;<b>&nbsp;OR&nbsp;</b>&nbsp;&nbsp; Show and sell to a pool of 30000 potential buyers </h1>
   </div>
+  <!-- End Intro -->
+
+  <!-- Begin About -->
+  <div id="about">
+    <header><h3><%= link_to "Categories :", category_index_path %></h3></header>
+    <% @categories.each do |category| %>
+      <%= link_to(category_path(category.id)) do%>
+        <div class="one-fourth">
+          <%if category.paintings.empty? %>
+            <img src = "/images/no-images.jpg" />
+          <%else%> 
+            <%= image_tag category.paintings.first.image_url(:thumb) if category.paintings.first.image? %>
+          <%end%>
+          <h4><%= category.name%></h4>
+          <p><%= category.description %></p>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+  <!-- End About -->
+</div>
 
