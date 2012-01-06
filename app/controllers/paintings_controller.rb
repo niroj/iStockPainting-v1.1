@@ -53,7 +53,17 @@ class PaintingsController < ApplicationController
   end
 
   def tag
-    binding.pry
+    @paintings_all = Painting.all
+    @paintings = []
+    @paintings_all.each do |each_painting|
+      each_painting.tags.each do |tag|
+        if tag.name == params[:id]
+          @paintings << each_painting
+          break
+        end
+      end
+    end
+    render "index"
   end
 
   def search
@@ -71,7 +81,24 @@ class PaintingsController < ApplicationController
         format.js { render :partial => "rating" }
     end
   end
+  
+  def edit
+    @categories = Category.all
+    @painting = Painting.find(params[:id])
+  end
+  
+  def update
+    @painting = Painting.find(params[:id])
 
+    respond_to do |format|
+      if @painting.update_attributes(params[:painting])
+        format.html { redirect_to @painting, notice: 'Painting was successfully updated.' }
+      else
+        format.html { render action: "edit" }
+      end
+    end
+  end
+  
   private
     def tag_collector
       @tags = Painting.tag_counts_on(:tags).limit(20)

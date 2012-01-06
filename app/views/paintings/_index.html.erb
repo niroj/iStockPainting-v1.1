@@ -5,8 +5,9 @@
     <% @paintings.each do |painting| %>
       <div class="painting_thumbs">
         <%= link_to(painting_path(painting.id)) do%>
+        <span class="name"><%= painting.title %></span>
           <%= image_tag painting.image_url(:thumb) if painting.image? %>
-            <span class="name"><%= painting.title %></span>
+          <div class = "rating_small_static"><%= ratings_for painting, :static, :small =>true, :dimension => :beauty  %></div>
             <span class = "thumb-price"><%= painting.credits %>&nbsp;credits</span>
           <% end %>
       </div>
