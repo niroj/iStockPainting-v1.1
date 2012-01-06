@@ -6,7 +6,7 @@ class CategoryController < ApplicationController
   end
   def show
     @category = Category.where(:id => params[:id]).last
-    if @category.id == 1
+    if @category.name == "all"
       @paintings = Painting.all
     else
       @paintings = @category.paintings

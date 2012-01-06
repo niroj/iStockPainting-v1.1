@@ -3,7 +3,9 @@
     <h2><%= @painting.title %></h2>
     <%= image_tag @painting.image_url(:scaled_image) if @painting.image? %><br />
 
-    <div class ="rating_block"><h4><b>Rating:</b></h4><span id = "painting_rating"><%= ratings_for @painting, :dimension => :beauty %><%= @p %></span></div>
+    <div class ="rating_block"><h4><b>Rating:</b></h4><span id = "painting_rating">
+    <%= ratings_for @painting, :dimension => :beauty %><%= @p %>
+    </span></div>
 
       <div class = "action_block">
       <% if user_signed_in? %>

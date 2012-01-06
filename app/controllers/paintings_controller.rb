@@ -8,7 +8,7 @@ class PaintingsController < ApplicationController
   end
 
   def new
-    @categories = Category.all
+    @categories = Category.where("id<>1")
     @painting = current_user.paintings.new
   end
 
