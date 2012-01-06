@@ -4,10 +4,14 @@
     <%= image_tag @painting.image_url(:scaled_image) if @painting.image? %><br />
 
     <div class ="rating_block"><h4><b>Rating:</b></h4><span id = "painting_rating">
+    <%if user_signed_in? %>
       <%if current_user.id == @painting.user_id %>
-    <%= ratings_for @painting, :static, :dimension => :beauty %>
+        <%= ratings_for @painting, :static, :dimension => :beauty %>
+      <%else%>
+        <%= ratings_for @painting, :dimension => :beauty %>
+      <%end%>
     <%else%>
-    <%= ratings_for @painting, :dimension => :beauty %>
+      <%= ratings_for @painting, :static, :dimension => :beauty %>
     <%end%>
     </span></div>
 
