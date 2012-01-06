@@ -116,5 +116,6 @@
   text-shadow: 1px 1px 0 #EEEEEE, 2px 2px 0 #707070;
 }
 .rating_small_static{
-  
+  width:60px;
+  float:left;
 }

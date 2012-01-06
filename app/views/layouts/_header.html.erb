@@ -23,7 +23,7 @@
           <div id="smoothmenu1" class="ddsmoothmenu">
             <ul>
               <%if user_signed_in? %>
-                <li><%= link_to "Home", root_path, :class => "selected" %></li>
+                <li><%= link_to "Home", root_path %></li>
                 <li><%= link_to "Browse Paintings", paintings_path %></li>
                 <li><%= link_to "Upload Painting", new_painting_path %></li>
                 <li><%= link_to "My Paintings", my_paintings_path %></li>
