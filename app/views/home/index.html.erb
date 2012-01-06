@@ -1,7 +1,7 @@
 <!-- Begin Slider -->
   <div id="piecemaker-container">
     <div id="piecemaker">
-      <p><img src="/images/art/bridges.jpg" alt="Delphic" width=960px height=460px /></p>
+      <p><%= image_tag @painting.image_url if @painting.image? %><br /></p>
     </div>
   </div>
   <!-- End Slider -->

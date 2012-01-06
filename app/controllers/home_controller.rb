@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   before_filter :tag_collector
   def index
+  @painting = select_featured_painting
     if user_signed_in?
-      @painting = select_featured_painting
       redirect_to painting_path(@painting)
     end
   end
@@ -24,8 +24,9 @@ def select_featured_painting
   #   #   @max = @rating
   #   # end
   # # end
-  
+
   @highest_painting = Painting.where(:status => true)
   @highest_painting[rand(@highest_painting.length)]
 
 end
+

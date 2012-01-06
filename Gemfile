@@ -18,6 +18,7 @@ gem 'contact_us', '~> 0.1.4'
 gem 'formtastic'
 gem 'sunspot_rails'
 gem 'ajaxful_rating', '>= 3.0.0.beta7'
+gem 'will_paginate'
 
 group :development do
     gem 'sunspot_solr'

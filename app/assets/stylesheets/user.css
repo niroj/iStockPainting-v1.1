@@ -29,6 +29,10 @@
   width:630px;
   padding-bottom:20px;
 }
+#piecemaker img{
+	width:960px;
+	height:460px
+}
 .price, .inspiration{
   padding:10px;
 }
@@ -106,3 +110,4 @@
   width:440px;
   float:right;
 }
+
