@@ -63,7 +63,6 @@ class PaintingsController < ApplicationController
         end
       end
     end
-    render "index"
   end
 
   def search
@@ -71,7 +70,6 @@ class PaintingsController < ApplicationController
       fulltext params[:search]
     end
     @paintings = @search_response.results
-    render "index"
   end
 
   def rate
@@ -85,6 +83,7 @@ class PaintingsController < ApplicationController
   def edit
     @categories = Category.all
     @painting = Painting.find(params[:id])
+    @category = @painting.category
   end
   
   def update
