@@ -50,6 +50,9 @@ group :test, :development do
 # gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'pry'
   gem 'pry-doc'
+
+  gem 'watchr'                  #   For running auto testing
+  gem 'spork', '~> 0.9.0.rc'    #   For making your test fast
 end
 
 group :test do
